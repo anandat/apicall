@@ -1,12 +1,14 @@
-import 'package:apicall/product_response_model.dart';
-import 'package:apicall/app_constants.dart';
 import 'package:dio/dio.dart';
+import 'package:apicall/core/constants/app_constants.dart';
+import 'package:apicall/features/product/data/models/product_response_model.dart';
+import 'package:apicall/features/product/domain/repositories/product_repository.dart';
 
-class ProductRepo {
+class ProductRepositoryImpl implements ProductRepository {
   final Dio _dio;
 
-  ProductRepo(this._dio);
+  ProductRepositoryImpl(this._dio);
 
+  @override
   Future<ProductResponse> getProducts({required int skip, int limit = AppConstants.pageLimit}) async {
     final res = await _dio.get(
       AppConstants.productsEndpoint,

@@ -1,11 +1,11 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:apicall/product_event.dart';
-import 'package:apicall/product_state.dart';
-import 'package:apicall/product_repo.dart';
-import 'package:apicall/app_constants.dart';
+import 'package:apicall/core/constants/app_constants.dart';
+import 'package:apicall/features/product/domain/repositories/product_repository.dart';
+import 'package:apicall/features/product/presentation/bloc/product_event.dart';
+import 'package:apicall/features/product/presentation/bloc/product_state.dart';
 
 class ProductBloc extends Bloc<ProductEvent, ProductState> {
-  final ProductRepo _repo;
+  final ProductRepository _repo;
 
   ProductBloc(this._repo) : super(const ProductState()) {
     on<FetchProducts>(_onFetchProducts);

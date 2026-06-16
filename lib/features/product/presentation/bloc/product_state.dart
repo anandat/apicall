@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:apicall/product_response_model.dart';
+import 'package:apicall/features/product/data/models/product_response_model.dart';
 
 class ProductState extends Equatable {
   final List<Products> products;

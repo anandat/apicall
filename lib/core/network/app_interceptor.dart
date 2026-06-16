@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:apicall/app_constants.dart';
 import 'dart:developer';
 
 class AppInterceptor extends Interceptor {
@@ -28,14 +27,4 @@ class AppInterceptor extends Interceptor {
     };
     handler.next(err.copyWith(message: message));
   }
-}
-
-Dio createDio() {
-  final dio = Dio(BaseOptions(
-    baseUrl: AppConstants.baseUrl,
-    connectTimeout: AppConstants.connectTimeout,
-    receiveTimeout: AppConstants.receiveTimeout,
-  ));
-  dio.interceptors.add(AppInterceptor());
-  return dio;
 }
